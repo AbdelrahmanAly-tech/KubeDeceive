@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: cicflowmeter-pv
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteMany 
+  storageClassName: ""  # Ensures no specific storage class is required
+  hostPath:
+    path: /var/data/cicflowmeter  # Change this path to an appropriate directory on the host
+
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: cicflowmeter-pvc
+spec:
+  accessModes:
+    - ReadWriteMany 
+  resources:
+    requests:
+      storage: 5Gi
+  volumeName: cicflowmeter-pv
+  storageClassName: ""  # Matches the storage class of the PV
