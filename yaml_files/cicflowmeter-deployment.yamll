@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cicflowmeter-deployment
+  labels:
+    app: cicflowmeter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cicflowmeter
+  template:
+    metadata:
+      labels:
+        app: cicflowmeter
+    spec:
+      containers:
+      - name: cicflowmeter
+        image: mielverkerken/cicflowmeter
+        command: ["/bin/sh", "-c"]
+        args: [
+          "mkdir -p /tmp/pcap/input /tmp/pcap/output && /CICFlowMeter/bin/cfm /tmp/pcap/input /tmp/pcap/output"
+        ]
+        volumeMounts:
+        - name: cicflowmeter-volume
+          mountPath: /tmp/pcap/input  
+          subPath: input  
+        - name: cicflowmeter-volume
+          mountPath: /tmp/pcap/output  
+          subPath: output  
+      volumes:
+      - name: cicflowmeter-volume
+        persistentVolumeClaim:
+          claimName: cicflowmeter-pvc
