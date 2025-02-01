@@ -6,4 +6,4 @@ spec:
   predictor:
     containers:
       - name: kserve-container
-        image: abdulrhmanaly/custom_model:v1.2
+        image: <builtimage>
