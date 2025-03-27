@@ -42,11 +42,4 @@ Refer to the [SSL Configuration Guide](TLS_Configurations.md) for detailed instr
 `kubectl get all -A`
 
 
-##  Contributors  
 
-| Name               | Affiliation           |  
-|--------------------|----------------------|  
-| **Abdelrahman Aly**  | Ain Shams University |  
-| **Mahmoud Fayez**   | Ain Shams University |  
-| **Mirvat Al-Qutt**  | Ain Shams University |  
-| **Ahmed M. Hamad**  | Ain Shams University |  
