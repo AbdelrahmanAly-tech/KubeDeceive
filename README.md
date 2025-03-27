@@ -38,7 +38,7 @@ Refer to the [SSL Configuration Guide](TLS_Configurations.md) for detailed instr
 ### 4️. Execute Overlay Script
 `sudo python3 ./overlay.py`
 
-### 5️5 Verify Deployment
+### 5. Verify Deployment
 `kubectl get all -A`
 
 
